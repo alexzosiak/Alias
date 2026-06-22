@@ -1,16 +1,31 @@
 {
-  "name": "alias",
-  "version": "1.2.0",
-  "description": "game",
-  "main": "webpack.config.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Aleksey Zosyak",
-  "license": "ISC",
-  "keywords": [],
-  "devDependencies": {
-    "webpack": "^5.90.1",
-    "webpack-cli": "^5.1.4"
-  }
+    "name": "alias",
+    "version": "1.2.0",
+    "description": "game",
+    "main": "webpack.config.js",
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "author": "Aleksey Zosiak",
+    "license": "ISC",
+    "keywords": [],
+    "devDependencies": {
+        "@types/node": "^26.0.0",
+        "@types/react": "^19.2.17",
+        "eslint": "^9.39.4",
+        "eslint-config-next": "^16.2.9",
+        "typescript": "^6.0.3",
+        "webpack": "^5.90.1",
+        "webpack-cli": "^5.1.4"
+    },
+    "dependencies": {
+        "next": "^16.2.9",
+        "react": "^19.2.7",
+        "react-dom": "^19.2.7",
+        "sass": "^1.101.0",
+        "zustand": "^5.0.14"
+    }
 }
