@@ -1,0 +1,144 @@
+@keyframes ball-animation {
+    0% {
+        transform: translateY(700px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+@keyframes cloud1-animation {
+    0% {
+        transform: translateX(-500px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+@keyframes cloud2-animation {
+    0% {
+        transform: translateX(-700px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}   
+@keyframes cloud3-animation {
+    0% {
+        transform: translateX(950px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}   
+@keyframes cloud4-animation {
+    0% {
+        transform: translateX(800px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}   
+@keyframes cloud5-animation {
+    0% {
+        transform: translateX(450px) 
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}   
+@keyframes floor1-animation {
+    0% {
+        transform: translateY(400px)
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}   
+@keyframes floor2-animation {
+    0% {
+        transform: translateY(400px)
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}   
+@keyframes floor3-animation {
+    0% {
+        transform: translateY(400px)
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}   
+@media screen and (max-width: 1900px) {
+
+    @keyframes cloud3-animation {
+        0% {
+            transform: translateX(900px);
+        }
+        100% {
+            transform: translateX(0px);
+        }
+    }
+    @keyframes cloud4-animation {
+        0% {
+            transform: translateX(650px);
+        }
+        100% {
+            transform: translateX(0px);
+        }
+    }
+}
+@media screen and (max-width: 1600px) {
+ 
+    @keyframes cloud3-animation {
+        0% {
+            transform: translateX(600px)
+        }
+        100% {
+            transform: translateX(0px)
+        }
+    }
+    @keyframes cloud4-animation {
+        0% {
+            transform: translateX(450px)
+        }
+        100% {
+            transform: translateX(0px)
+        }
+    }
+}
+@media screen and (max-width: 1100px) {
+    @keyframes cloud1-animation {
+        0% {
+            transform: translateX(-300px);
+        }
+        100% {
+            transform: translateX(0px);
+        }
+    }
+    @keyframes cloud2-animation {
+        0% {
+            transform: translateX(-350px);
+        }
+        100% {
+            transform: translateX(0px);
+        }
+    }
+    @keyframes cloud3-animation {
+        0% {
+            transform: translateX(350px)
+        }
+        100% {
+            transform: translateX(0px)
+        }
+    }
+    @keyframes cloud4-animation {
+        0% {
+            transform: translateX(300px)
+        }
+        100% {
+            transform: translateX(0px)
+        }
+    }
+}

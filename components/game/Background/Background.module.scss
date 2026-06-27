@@ -1,0 +1,327 @@
+@use '../../../styles/animations' as *;
+
+.background {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.item {
+    position: absolute;
+}
+
+.ball {
+    width: 100px;
+    left: 500px;
+    bottom: 500px;
+    animation-name: ball-animation;
+    animation-duration: 15s;
+    z-index: 2;
+}
+.cloud1 {
+    width: 450px;
+    top: 20px;
+    left: 0px;
+    z-index: 5;
+    animation-name: cloud1-animation;
+    animation-duration: 3s;
+}
+.cloud2 {
+    width: 250px;
+    top: 85px;
+    left: 420px;
+    z-index: 0;
+    animation-name: cloud2-animation;
+    animation-duration: 4s;
+}
+.cloud3 {
+    width: 200px;
+    top: 0px;
+    right: 750px;
+    z-index: 0;
+    animation-name: cloud3-animation;
+    animation-duration: 4.5s;
+}
+.cloud4 {
+    width: 350px;
+    top: 400px;
+    right: 400px;
+    z-index: 4;
+    animation-name: cloud4-animation;
+    animation-duration: 4s;
+}
+.cloud5 {
+    width: 450px;
+    top: 0px;
+    right: 0px;
+    z-index: 5;
+    animation-name: cloud5-animation;
+    animation-duration: 3s;
+}
+.floor1 {
+    z-index: 3;
+    bottom: 0;
+    left: 0;
+    animation-name: floor1-animation;
+    animation-duration: 0.5s;
+}
+.floor2 {
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    animation-name: floor2-animation;
+    animation-duration: 1s;
+}
+.floor3 {
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    animation-name: floor3-animation;
+    animation-duration: 1.5s;
+}
+.mode {
+    position: absolute;
+    animation-direction: alternate;
+}
+.mode-floor {
+    width: auto;
+    bottom: 0;
+    left: 0;
+}
+
+@media screen and (max-width: 2200px) {
+    .mode-floor {
+        width: 2200px;
+    }
+}
+@media screen and (max-width: 2050px) {
+    .mode-floor {
+        width: 2050px;
+    }
+}
+
+@media screen and (max-width: 1900px) {
+    .ball {
+        width: 70px;
+        }
+    .cloud3 {
+        right: 550px;
+    }
+    .cloud4 {
+        right: 250px;
+    }
+    .mode-floor {
+        width: 1900px;
+    }
+}
+
+@media screen and (max-width: 1800px) {
+    .cloud3 {
+        right: 500px;
+    }
+    .mode-floor {
+        width: 1800px;
+    }
+}
+
+@media screen and (max-width: 1700px) {
+    .ball { 
+        width: 50px;
+    }
+    .cloud1 {
+        width: 350px;
+    }
+    .cloud2 {
+        width: 200px;
+    }
+    .cloud3 {
+        width: 200px;
+    }
+    .cloud4 {
+        width: 300px;
+    }
+    .cloud5{
+        width: 350px;
+    }
+    .mode-floor {
+        width: 1700px;
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    .ball { 
+        left: 400px;
+        bottom: 400px;
+    }
+    .cloud1 {
+        width: 300px;
+    }
+    .cloud2 {
+        width: 150px;
+        left: 350px;
+    }
+    .cloud3 {
+        width: 150px;
+        right: 500px;
+    }
+    .cloud4 {
+        width: 250px;
+        top: 300px;
+        right: 250px;
+    }
+    .cloud5{
+        width: 300px;
+    }
+    .mode-floor {
+        width: 1600px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .ball { 
+        left: 300px;
+    }
+    .cloud1 {
+        width: 250px;
+    }
+    .cloud2 {
+        left: 250px;
+    }
+    .cloud3 {
+        right: 400px;
+    }
+    .cloud4 {
+        width: 200px;
+        right: 120px;
+    }
+    .cloud5{
+        width: 250px;
+    }
+    .mode-floor {
+        width: 1400px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .ball { 
+        left: 250px;
+        bottom: 400px;
+    }
+    .cloud3 {
+        right: 400px;
+    }
+    .cloud5{
+        width: 250px;
+    }
+    .mode-floor {
+        width: 1300px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .mode-floor {
+        width: 1200px;
+    }
+}
+/* 1100 Ready */
+@media screen and (max-width: 1100px) {
+    .ball {
+        left: 150px;
+    }
+    .cloud1 {
+        width: 200px;
+    }
+    .cloud2 {
+        width: 100px;
+        top: 20px;
+    }
+    .cloud3 {
+        width: 100px;
+        right: 250px;
+    }
+    .cloud4 {
+        width: 150px;
+        right: 100px;
+    }
+    .cloud5{
+        top: 0px;
+        width: 200px;
+    }
+    .mode-floor {
+        width: 1100px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .mode-floor {
+        width: 1000px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .mode-floor {
+        width: 900px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .mode-floor {
+        width: 800px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .mode-floor {
+        width: 700px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .mode-floor {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .ball { 
+        display: none;
+    }
+    .cloud1 {
+        width: 100px;
+    }
+    .cloud2 {
+        width: 50px;
+        left: 100px;
+    }
+    .cloud3 {
+        width: 50px;
+        right: 110px;
+    }
+    .cloud4 {
+        width: 50px;
+        top: 50px;
+        right: 80px;
+    }
+    .cloud5{
+        width: 100px;
+    }
+  
+    .mode-floor {
+        width: 500px;
+    }
+}
+@media screen and (max-width: 450px) {
+    .mode-floor {
+        width: 450px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .mode-floor {
+        width: 400px;
+    }
+}
+@media screen and (max-width: 350px) {
+    .mode-floor {
+        width: 350px;
+    }
+}
+@media screen and (max-width: 300px) {
+    .mode-floor {
+        width: 300px;
+    }
+}
