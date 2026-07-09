@@ -13,65 +13,82 @@
 
 .ball {
     width: 100px;
+    height: auto;
     left: 500px;
     bottom: 500px;
     animation-name: ball-animation;
     animation-duration: 15s;
     z-index: 2;
+
 }
+
+
 .cloud1 {
     width: 450px;
+    height: auto;
     top: 20px;
     left: 0px;
     z-index: 5;
     animation-name: cloud1-animation;
     animation-duration: 3s;
+ 
 }
 .cloud2 {
     width: 250px;
+    height: auto;
     top: 85px;
     left: 420px;
     z-index: 0;
     animation-name: cloud2-animation;
-    animation-duration: 4s;
+    animation-duration: 3s;
 }
 .cloud3 {
     width: 200px;
+    height: auto;
     top: 0px;
     right: 750px;
     z-index: 0;
     animation-name: cloud3-animation;
-    animation-duration: 4.5s;
+    animation-duration: 3.5s;
+
 }
 .cloud4 {
     width: 350px;
+    height: auto;
     top: 400px;
     right: 400px;
     z-index: 4;
     animation-name: cloud4-animation;
-    animation-duration: 4s;
+    animation-duration: 4.5s;
+
 }
 .cloud5 {
     width: 450px;
+    height: auto;
     top: 0px;
     right: 0px;
     z-index: 5;
     animation-name: cloud5-animation;
     animation-duration: 3s;
+  
 }
 .floor1 {
     z-index: 3;
     bottom: 0;
     left: 0;
+    right: 0px;
     animation-name: floor1-animation;
-    animation-duration: 0.5s;
+    animation-duration: 1.7s;
+  
 }
 .floor2 {
     z-index: 2;
     bottom: 0;
     left: 0;
+    right: 0px;
     animation-name: floor2-animation;
     animation-duration: 1s;
+   
 }
 .floor3 {
     z-index: 1;
@@ -79,6 +96,7 @@
     left: 0;
     animation-name: floor3-animation;
     animation-duration: 1.5s;
+    
 }
 .mode {
     position: absolute;

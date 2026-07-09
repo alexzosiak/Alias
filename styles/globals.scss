@@ -7,10 +7,11 @@
 }
 
 body {
-    background-image: url("/background/els.png"), url("/background/els.png");
+    background-color: #dcf7ff;
+    background-image: url("/background/els.png"), url("/background/els.png"), url("/background/els.png"), url("/background/els.png");
     background-repeat: no-repeat;
-    background-position: top -150px left 0px, bottom -750px right 0px;
-    background-size: 3000px, 3000px;
+    background-position: top -100px right 0px, top -150px left 0px, bottom -150px right 0px, bottom -150px left 0px;
+    background-size: auto, auto, auto, auto;
     color: #000;
     font-family: 'Neucha', regular;
     overflow: hidden;

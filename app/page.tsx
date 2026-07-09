@@ -11,7 +11,7 @@ export default function HomePage() {
         <>
             
             
-                <Background />
+                {/* <Background /> */}
          
             {/* {screen === 'menu' && <MainMenu />}
             {screen === 'setup' && <div>Game setup screen</div>}
