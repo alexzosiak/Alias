@@ -7,11 +7,13 @@
 }
 
 body {
-    background-color: #dcf7ff;
-    background-image: url("/background/els.png"), url("/background/els.png"), url("/background/els.png"), url("/background/els.png");
-    background-repeat: no-repeat;
-    background-position: top -100px right 0px, top -150px left 0px, bottom -150px right 0px, bottom -150px left 0px;
-    background-size: auto, auto, auto, auto;
+    width: 100%;
+    height: 100%;
+    background-color: #C1EFFF;
+    background-image: url("/background/els.png"), url("/background/els.png");
+    background-repeat: no-repeat, no-repeat;
+    background-position: top -150px center, bottom -110px center;
+    background-size: 130% auto, 130% auto;
     color: #000;
     font-family: 'Neucha', regular;
     overflow: hidden;
