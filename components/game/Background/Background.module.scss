@@ -1,10 +1,12 @@
 @use '../../../styles/animations' as *;
 
 .background {
-    position: relative;
+    position: fixed;
     width: 100%;
     min-height: 100vh;
     overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
 }
 
 .item {

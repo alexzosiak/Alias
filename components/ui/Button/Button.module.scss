@@ -1,0 +1,28 @@
+.button {
+    width: 190px;
+    height: 50px;
+
+    font-family: inherit;
+    font-size: 24px;
+
+    background-color: #fff974;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 5px 1px #c0f0fe;
+
+    cursor: pointer;
+    transition:
+        width 0.2s,
+        background-color 0.2s,
+        transform 0.1s;
+
+    &:hover {
+        width: 220px;
+        background-color: rgb(252, 243, 56);
+    }
+
+    &:active {
+        transform: translateY(3px);
+        box-shadow: 0 2px 1px #c0f0fe;
+    }
+}
