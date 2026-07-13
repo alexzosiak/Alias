@@ -26,10 +26,6 @@ export function MainScreen() {
                     <Button onClick={() => goToSettings()}>
                         Settings
                     </Button>
-
-                    <Button onClick={() => goToStatistics()}>
-                        Statistics
-                    </Button>
                 </div>
             </section>
         </main>
