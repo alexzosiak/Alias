@@ -1,34 +1,22 @@
 'use client';
 
-import { Button } from '@/components/ui/Button/Button';
+import { CardView } from '@/components/ui/CardView/CardView';
 import { useScreenStore } from '@/store/screen/screen.store';
+
 import styles from './RulesScreen.module.scss';
 
 export function RulesScreen() {
-    const goToSetup = useScreenStore((state) => state.goToSetup);
-    const goToRules = useScreenStore((state) => state.goToRules);
-    const goToSettings = useScreenStore((state) => state.goToSettings);
+    const { goToMenu } = useScreenStore();
 
     return (
-        <main className={styles.container}>
-            <section className={styles.menu}>
-                <h1 className={styles.title}>RULES</h1>
+        <CardView>
+            <h1 className={styles.title}>RULES</h1>
 
-                <div className={styles.actions}>
-                    <Button onClick={() => goToSetup()}>
-                        Start game
-                    </Button>
+            <p className={styles.text}>
+                The game is played in teams. Each team takes turns to have one player describe a word or phrase to their teammates without using the word itself or any part of it. The goal is for the team to guess as many words as possible within a time limit. The team with the most correct guesses wins the game.
+            </p>
 
-                    <Button onClick={() => goToRules()}>
-                        Rules
-                    </Button>
-
-                    <Button onClick={() => goToSettings()}>
-                        Settings
-                    </Button>
-
-                </div>
-            </section>
-        </main>
+            <button className={styles.button} onClick={() => goToMenu()}>Back</button>
+        </CardView>
     );
 }

@@ -1,33 +1,16 @@
 'use client';
 
-import { Button } from '@/components/ui/Button/Button';
-import { useScreenStore } from '@/store/screen/screen.store';
+import { CardView } from '@/components/ui/CardView/CardView';
+import { Navigation } from '@/components/ui/Navigation/Navigation';
 import styles from './MainScreen.module.scss';
 
 export function MainScreen() {
-    const goToSetup = useScreenStore((state) => state.goToSetup);
-    const goToRules = useScreenStore((state) => state.goToRules);
-    const goToSettings = useScreenStore((state) => state.goToSettings);
 
     return (
-        <main className={styles.container}>
-            <section className={styles.menu}>
+        
+        <CardView>
                 <h1 className={styles.title}>Alias</h1>
-
-                <div className={styles.actions}>
-                    <Button onClick={() => goToSetup()}>
-                        Start game
-                    </Button>
-
-                    <Button onClick={() => goToRules()}>
-                        Rules
-                    </Button>
-
-                    <Button onClick={() => goToSettings()}>
-                        Settings
-                    </Button>
-                </div>
-            </section>
-        </main>
+                <Navigation />
+        </CardView>
     );
 }

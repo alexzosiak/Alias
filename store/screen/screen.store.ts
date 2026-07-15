@@ -16,12 +16,6 @@ export const useScreenStore = create<ScreenStore>((set) => ({
         });
     },
 
-    goToSetup: () => {
-        set({
-            currentScreen: 'setup',
-        });
-    },
-
     goToRules: () => {
         set({
             currentScreen: 'rules',
@@ -37,6 +31,12 @@ export const useScreenStore = create<ScreenStore>((set) => ({
     goToGame: () => {
         set({
             currentScreen: 'game',
+        });
+    },
+
+    goToResult: () => {
+        set({
+            currentScreen: 'result',
         });
     },
 }));

@@ -1,11 +1,4 @@
-export type Screen =
-    | 'menu'
-    | 'setup'
-    | 'rules'
-    | 'settings'
-    | 'game'
-    | 'roundResult'
-    | 'gameResult';
+export type Screen = 'menu' | 'rules' | 'settings' | 'game' | 'result';
 
 export type ScreenStore = {
     currentScreen: Screen;
@@ -13,8 +6,8 @@ export type ScreenStore = {
     setScreen: (screen: Screen) => void;
 
     goToMenu: () => void;
-    goToSetup: () => void;
     goToRules: () => void;
     goToSettings: () => void;
     goToGame: () => void;
+    goToResult: () => void;
 };
