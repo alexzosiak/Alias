@@ -1,42 +1,38 @@
 import { create } from 'zustand';
-import type { ScreenStore, Screen } from './screen.type';
+import { persist } from 'zustand/middleware';
 
-export const useScreenStore = create<ScreenStore>((set) => ({
-    currentScreen: 'menu',
+import type { ScreenStore } from './screen.type';
 
-    setScreen: (screen: Screen) => {
-        set({
-            currentScreen: screen,
-        });
-    },
-
-    goToMenu: () => {
-        set({
+export const useScreenStore = create<ScreenStore>()(
+    persist(
+        (set) => ({
             currentScreen: 'menu',
-        });
-    },
+            hasHydrated: false,
 
-    goToRules: () => {
-        set({
-            currentScreen: 'rules',
-        });
-    },
+            setScreen: (currentScreen) => {
+                set({ currentScreen });
+            },
 
-    goToSettings: () => {
-        set({
-            currentScreen: 'settings',
-        });
-    },
+            setHasHydrated: (hasHydrated) => {
+                set({ hasHydrated });
+            },
 
-    goToGame: () => {
-        set({
-            currentScreen: 'game',
-        });
-    },
+            goToMenu: () => set({ currentScreen: 'menu' }),
+            goToRules: () => set({ currentScreen: 'rules' }),
+            goToSettings: () => set({ currentScreen: 'settings' }),
+            goToGame: () => set({ currentScreen: 'game' }),
+            goToResult: () => set({ currentScreen: 'result' }),
+        }),
+        {
+            name: 'alias-screen',
 
-    goToResult: () => {
-        set({
-            currentScreen: 'result',
-        });
-    },
-}));
+            partialize: (state) => ({
+                currentScreen: state.currentScreen,
+            }),
+
+            onRehydrateStorage: () => (state) => {
+                state?.setHasHydrated(true);
+            },
+        },
+    ),
+);

@@ -1,7 +1,7 @@
 import { prepareDeck } from '@/features/deck/prepareDeck';
 import { loadCards } from '@/features/cards/loadCards';
 import { useGameStore } from '@/store/game/game.store';
-import { useScreenStore } from '@/store/screen/screen.store';
+import { useScreenStore } from "@/store/screen/screen.store";
 import { useSettingsStore } from '@/store/settings/settings.store';
 
 export function startNewGame(): void {

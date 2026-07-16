@@ -3,16 +3,12 @@
 import { CardView } from '@/components/ui/CardView/CardView';
 import { startNewGame } from '@/features/game/startNewGame';
 import { useSettingsStore } from '@/store/settings/settings.store';
-
+import { useScreenStore } from '@/store/screen/screen.store';
 import type { DeckSize, RoundTime } from '@/store/settings/settings.type';
 
 export function SettingScreen() {
-    const deckSize = useSettingsStore((state) => state.deckSize);
-    const roundTime = useSettingsStore((state) => state.roundTime);
-
-    const setDeckSize = useSettingsStore((state) => state.setDeckSize);
-
-    const setRoundTime = useSettingsStore((state) => state.setRoundTime);
+    const { goToMenu } = useScreenStore();
+    const { deckSize, roundTime, setDeckSize, setRoundTime } = useSettingsStore();
 
     return (
         <CardView>
@@ -50,6 +46,9 @@ export function SettingScreen() {
 
             <button type="button" onClick={startNewGame}>
                 Start game
+            </button>
+            <button type="button" onClick={() => goToMenu()}>
+                back
             </button>
         </CardView>
     );

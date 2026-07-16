@@ -1,12 +1,12 @@
 'use client';
 
 import { CardView } from '@/components/ui/CardView/CardView';
-import { useScreenStore } from '@/store/screen/screen.store';
+import { useScreenStore } from "@/store/screen/screen.store";
 
 import styles from './RulesScreen.module.scss';
 
 export function RulesScreen() {
-    const { goToMenu } = useScreenStore();
+    const goToMenu = useScreenStore((state) => state.goToMenu);
 
     return (
         <CardView>

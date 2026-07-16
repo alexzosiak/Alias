@@ -1,14 +1,21 @@
 'use client';
 
-import { useScreenStore } from '@/store/screen/screen.store';
+import { useScreenStore } from "@/store/screen/screen.store";
+
 import { MainScreen } from '@/components/screens/MainScreen/MainScreen';
 import { RulesScreen } from '@/components/screens/RulesScreen/RulesScreen';
-import { ResultScreen } from '@/components/screens/ResultScreen/ResultScreen';
-import { GameScreen } from '@/components/screens/GameScreen/GameScreen';
 import { SettingScreen } from '@/components/screens/SettingScreen/SettingScreen';
+import { GameScreen } from '@/components/screens/GameScreen/GameScreen';
+import { ResultScreen } from '@/components/screens/ResultScreen/ResultScreen';
 
 export function ScreenRenderer() {
     const currentScreen = useScreenStore((state) => state.currentScreen);
+
+    const hasHydrated = useScreenStore((state) => state.hasHydrated);
+
+    if (!hasHydrated) {
+        return null;
+    }
 
     switch (currentScreen) {
         case 'menu':
