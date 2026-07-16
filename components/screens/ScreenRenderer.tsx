@@ -3,7 +3,9 @@
 import { useScreenStore } from '@/store/screen/screen.store';
 import { MainScreen } from '@/components/screens/MainScreen/MainScreen';
 import { RulesScreen } from '@/components/screens/RulesScreen/RulesScreen';
-import { GameScreen } from './GameScreen/GameScreen';
+import { ResultScreen } from '@/components/screens/ResultScreen/ResultScreen';
+import { GameScreen } from '@/components/screens/GameScreen/GameScreen';
+import { SettingScreen } from '@/components/screens/SettingScreen/SettingScreen';
 
 export function ScreenRenderer() {
     const currentScreen = useScreenStore((state) => state.currentScreen);
@@ -16,13 +18,13 @@ export function ScreenRenderer() {
             return <RulesScreen />;
 
         case 'settings':
-            return <div>Settings screen</div>;
+            return <SettingScreen />;
 
         case 'game':
             return <GameScreen />;
 
         case 'result':
-            return <div>Result screen</div>;
+            return <ResultScreen />;
 
         default:
             return <MainScreen />;

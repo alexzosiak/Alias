@@ -18,7 +18,7 @@ export const testDeck: WordCard[] = [
     { id: '15', word: 'Hand', image: '/cards/hand.svg' },
     { id: '16', word: 'Horse', image: '/cards/horse.svg' },
     { id: '17', word: 'Ice', image: '/cards/ice.svg' },
-    { id: '18', word: 'IceCream', image: '/cards/icecream.svg' },
+    { id: '18', word: 'Ice Cream', image: '/cards/ice-cream.svg' },
     { id: '19', word: 'Key', image: '/cards/key.svg' },
     { id: '20', word: 'Leg', image: '/cards/leg.svg' },
     { id: '21', word: 'Lion', image: '/cards/lion.svg' },

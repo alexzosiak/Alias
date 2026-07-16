@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-import type { GameStore } from './game.type';
+import type { GameStore, GameState } from './game.type';
 
 export const useGameStore = create<GameStore>((set) => ({
     status: 'idle',
@@ -19,17 +19,7 @@ export const useGameStore = create<GameStore>((set) => ({
         });
     },
 
-    correctAnswer: () => {
-        set((state) => ({
-            correctCount: state.correctCount + 1,
-            currentCardIndex: state.currentCardIndex + 1,
-        }));
-    },
-
-    skipAnswer: () => {
-        set((state) => ({
-            skippedCount: state.skippedCount + 1,
-            currentCardIndex: state.currentCardIndex + 1,
-        }));
+    setGameState: (gameState: GameState) => {
+        set(gameState);
     },
 }));
