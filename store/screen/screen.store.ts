@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import type { ScreenStore, Screen } from './screen.types';
+import type { ScreenStore, Screen } from './screen.type';
 
 export const useScreenStore = create<ScreenStore>((set) => ({
     currentScreen: 'menu',

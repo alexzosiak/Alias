@@ -1,54 +1,35 @@
 import { create } from 'zustand';
 
-import {
-    answerCurrentCard,
-    createInitialGameState,
-    finishGame,
-    resetGame,
-} from '@/features/game/game.logic';
-
-import type { GameState, WordCard } from '@/types/game.types';
-
-type GameStore = {
-    game: GameState;
-
-    startGame: (deck: WordCard[]) => void;
-    correctAnswer: () => void;
-    skipAnswer: () => void;
-    finish: () => void;
-    reset: () => void;
-};
+import type { GameStore } from './game.type';
 
 export const useGameStore = create<GameStore>((set) => ({
-    game: resetGame(),
+    status: 'idle',
+    deck: [],
+    currentCardIndex: 0,
+    correctCount: 0,
+    skippedCount: 0,
 
     startGame: (deck) => {
         set({
-            game: createInitialGameState(deck),
+            status: 'playing',
+            deck,
+            currentCardIndex: 0,
+            skippedCount: 0,
+            correctCount: 0,
         });
     },
 
     correctAnswer: () => {
         set((state) => ({
-            game: answerCurrentCard(state.game, 'correct'),
+            correctCount: state.correctCount + 1,
+            currentCardIndex: state.currentCardIndex + 1,
         }));
     },
 
     skipAnswer: () => {
         set((state) => ({
-            game: answerCurrentCard(state.game, 'skipped'),
+            skippedCount: state.skippedCount + 1,
+            currentCardIndex: state.currentCardIndex + 1,
         }));
-    },
-
-    finish: () => {
-        set((state) => ({
-            game: finishGame(state.game),
-        }));
-    },
-
-    reset: () => {
-        set({
-            game: resetGame(),
-        });
     },
 }));
