@@ -3,6 +3,7 @@
 import { useGameStore } from '@/store/game/game.store';
 import { useScreenStore } from '@/store/screen/screen.store';
 import { CardView} from '@/components/ui/CardView/CardView';
+import { Button } from '@/components/ui/Button/Button';
 export function ResultScreen() {
     const correctCount = useGameStore((state) => state.correctCount);
 
@@ -12,12 +13,12 @@ export function ResultScreen() {
 
     return (
         <CardView>
-            <h1>Game result</h1>
+            <h1>Game result:</h1>
 
             <p>Correct answers: {correctCount}</p>
             <p>Skipped cards: {skippedCount}</p>
 
-            <button onClick={goToMenu}>Back to menu</button>
+            <Button onClick={goToMenu}>Back to menu</Button>
         </CardView>
     );
 }

@@ -6,6 +6,7 @@ import { useGameStore } from '@/store/game/game.store';
 import { answerCorrect } from '@/features/game/answerCorrect';
 import { skipCard } from '@/features/game/skipCard';
 import { Timer } from '@/components/game/Timer/Timer';
+import styles from './GameScreen.module.scss';
 
 export function GameScreen() {
     const deck = useGameStore((state) => state.deck);
@@ -23,8 +24,7 @@ export function GameScreen() {
 
     return (
         <CardView>
-            <h1>Game</h1>
-            <Timer/>
+            <Timer />
 
             <Image
                 src={currentCard.image}
@@ -36,8 +36,22 @@ export function GameScreen() {
 
             <h2>{currentCard.word}</h2>
 
-            <button onClick={answerCorrect}>Correct</button>
-            <button onClick={skipCard}>Skip</button>
+            <div className={styles.actions}>
+                <button
+                    className={`${styles.answerButton} ${styles.skip}`}
+                    type="button"
+                    onClick={skipCard}
+                >
+                    Skip
+                </button>
+                <button
+                    className={`${styles.answerButton} ${styles.correct}`}
+                    type="button"
+                    onClick={answerCorrect}
+                >
+                    Correct
+                </button>
+            </div>
         </CardView>
     );
 }

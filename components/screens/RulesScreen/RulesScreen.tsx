@@ -1,22 +1,42 @@
 'use client';
 
 import { CardView } from '@/components/ui/CardView/CardView';
-import { useScreenStore } from "@/store/screen/screen.store";
+import { useScreenStore } from '@/store/screen/screen.store';
 
 import styles from './RulesScreen.module.scss';
+import { Button } from '@/components/ui/Button/Button';
 
 export function RulesScreen() {
     const goToMenu = useScreenStore((state) => state.goToMenu);
 
     return (
         <CardView>
-            <h1 className={styles.title}>RULES</h1>
+            <div className={styles.container}>
+                <h1 className={styles.title}>RULES:</h1>
 
-            <p className={styles.text}>
-                The game is played in teams. Each team takes turns to have one player describe a word or phrase to their teammates without using the word itself or any part of it. The goal is for the team to guess as many words as possible within a time limit. The team with the most correct guesses wins the game.
-            </p>
+                <p className={styles.text}>
+                    Alias — це весела гра на пояснення слів. Ваше завдання —
+                    пояснити якомога більше слів за обмежений час, не називаючи
+                    саме слово. Як грати Оберіть кількість слів для гри.
+                    Натисніть кнопку «Почати гру». На екрані з’явиться слово,
+                    яке потрібно пояснити іншому гравцеві. Пояснюйте слово
+                    будь-якими іншими словами, жестами або прикладами. Не можна
+                    називати саме слово або використовувати слова з тим самим
+                    коренем. Якщо слово вгадано, натисніть кнопку «Правильно».
+                    Якщо слово складне або ви не хочете його пояснювати,
+                    натисніть кнопку «Пропустити». Після відповіді на екрані
+                    з’явиться наступне слово. Гра триває, поки не закінчиться
+                    час або всі слова. Нарахування балів За кожне вгадане слово
+                    гравець отримує 1 бал. Пропущені слова не додають балів.
+                    Завершення гри Після завершення часу гра автоматично
+                    зупиниться. На екрані результатів ви побачите: кількість
+                    правильних відповідей; кількість пропущених слів; загальний
+                    результат. Намагайтеся пояснити якомога більше слів і
+                    встановити новий рекорд!
+                </p>
+            </div>
 
-            <button className={styles.button} onClick={() => goToMenu()}>Back</button>
+            <Button onClick={() => goToMenu()}>Back</Button>
         </CardView>
     );
 }
