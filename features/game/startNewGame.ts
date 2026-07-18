@@ -5,11 +5,11 @@ import { useScreenStore } from "@/store/screen/screen.store";
 import { useSettingsStore } from '@/store/settings/settings.store';
 
 export function startNewGame(): void {
-    const deckSize = useSettingsStore.getState().deckSize;
+    const { deckSize, roundTime } = useSettingsStore.getState();
 
     const allCards = loadCards();
     const preparedDeck = prepareDeck(allCards, deckSize);
 
-    useGameStore.getState().startGame(preparedDeck);
+    useGameStore.getState().startGame(preparedDeck, roundTime);
     useScreenStore.getState().goToGame();
 }

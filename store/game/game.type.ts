@@ -12,9 +12,12 @@ export type GameState = {
     currentCardIndex: number;
     correctCount: number;
     skippedCount: number;
+    endsAt: number | null;
 };
 
 export type GameStore = GameState & {
-    startGame: (deck: WordCard[]) => void;
+    hasHydrated: boolean;
+    setHasHydrated: (value: boolean) => void;
+    startGame: (deck: WordCard[], roundTime: number) => void;
     setGameState: (gameState: GameState) => void;
 };

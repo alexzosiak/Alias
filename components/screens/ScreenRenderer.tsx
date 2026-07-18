@@ -10,10 +10,11 @@ import { ResultScreen } from '@/components/screens/ResultScreen/ResultScreen';
 
 export function ScreenRenderer() {
     const currentScreen = useScreenStore((state) => state.currentScreen);
+    const screenHasHydrated = useScreenStore((state) => state.hasHydrated);
+    const settingsHasHydrated = useScreenStore((state) => state.setHasHydrated); 
+    const gameHasHydrated = useScreenStore((state) => state.setHasHydrated);
 
-    const hasHydrated = useScreenStore((state) => state.hasHydrated);
-
-    if (!hasHydrated) {
+    if (!screenHasHydrated || !settingsHasHydrated || !gameHasHydrated) {
         return null;
     }
 

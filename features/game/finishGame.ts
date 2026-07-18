@@ -10,6 +10,7 @@ export function finishGame(): void {
         currentCardIndex: store.currentCardIndex,
         correctCount: store.correctCount,
         skippedCount: store.skippedCount,
+        endsAt: null,
     });
 
     useScreenStore.getState().goToResult();

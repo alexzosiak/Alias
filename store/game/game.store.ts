@@ -11,14 +11,22 @@ export const useGameStore = create<GameStore>()(
             currentCardIndex: 0,
             correctCount: 0,
             skippedCount: 0,
+            endsAt: null,
+            hasHydrated: false,
 
-            startGame: (deck) => {
+            setHasHydrated: (hasHydrated) => {
+                set({ hasHydrated });
+            },
+
+            startGame: (deck, roundTime) => {
+                const endsAt = Date.now() + roundTime * 1000;
                 set({
                     status: 'playing',
                     deck,
                     currentCardIndex: 0,
                     correctCount: 0,
                     skippedCount: 0,
+                    endsAt,
                 });
             },
 
@@ -28,6 +36,19 @@ export const useGameStore = create<GameStore>()(
         }),
         {
             name: 'alias-game',
+
+            partialize: (state) => ({
+                status: state.status,
+                deck: state.deck,
+                currentCardIndex: state.currentCardIndex,
+                correctCount: state.correctCount,
+                skippedCount: state.skippedCount,
+                endsAt: state.endsAt,
+            }),
+
+            onRehydrateStorage: () => (state) => {
+                state?.setHasHydrated(true);
+            },
         },
     ),
 );

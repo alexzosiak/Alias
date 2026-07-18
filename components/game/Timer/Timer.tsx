@@ -1,35 +1,55 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useSettingsStore } from '@/store/settings/settings.store';
-import { finishGame } from '@/features/game/finishGame';
 
-export const Timer = () => {
-    const { roundTime } = useSettingsStore();
-    const [secondsLeft, setSecondsLeft] = useState<number>(roundTime);
+import { finishGame } from '@/features/game/finishGame';
+import { useGameStore } from '@/store/game/game.store';
+
+function calculateTimeLeft(endsAt: number | null): number {
+    if (endsAt === null) {
+        return 0;
+    }
+
+    const millisecondsLeft = endsAt - Date.now();
+    const secondsLeft = Math.ceil(millisecondsLeft / 1000);
+
+    return Math.max(secondsLeft, 0);
+}
+
+export function Timer() {
+    const endsAt = useGameStore((state) => state.endsAt);
+    const status = useGameStore((state) => state.status);
+    const hasHydrated = useGameStore((state) => state.hasHydrated);
+
+    const [timeLeft, setTimeLeft] = useState(() => calculateTimeLeft(endsAt));
 
     useEffect(() => {
-        const timerId = window.setInterval(() => {
-            setSecondsLeft((currentSeconds) => {
-                if (currentSeconds <= 1) {
-                    window.clearInterval(timerId);
-                    return 0;
-                }
+        if (!hasHydrated || status !== 'playing' || endsAt === null) {
+            return;
+        }
 
-                return currentSeconds - 1;
-            });
-        }, 1000);
+        const updateTimer = () => {
+            const nextTimeLeft = calculateTimeLeft(endsAt);
+
+            setTimeLeft(nextTimeLeft);
+
+            if (nextTimeLeft <= 0) {
+                finishGame();
+            }
+        };
+
+        updateTimer();
+
+        const intervalId = window.setInterval(updateTimer, 1000);
 
         return () => {
-            window.clearInterval(timerId);
+            window.clearInterval(intervalId);
         };
-    }, []);
+    }, [endsAt, status, hasHydrated]);
 
-    useEffect(() => {
-        if (secondsLeft === 0) {
-            finishGame();
-        }
-    }, [secondsLeft]);
+    if (!hasHydrated) {
+        return null;
+    }
 
-    return <div>Time: {secondsLeft}</div>;
+    return <div>{timeLeft}</div>;
 }

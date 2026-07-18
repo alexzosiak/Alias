@@ -1,15 +1,39 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
+
 import type { GameSettingsState } from './settings.type';
 
-export const useSettingsStore = create<GameSettingsState>((set) => ({
-    deckSize: 15,
-    roundTime: 30,
+export const useSettingsStore = create<GameSettingsState>()(
+    persist(
+        (set) => ({
+            deckSize: 15,
+            roundTime: 30,
 
-    setDeckSize: (deckSize) => {
-        set({ deckSize });
-    },
+            hasHydrated: false,
 
-    setRoundTime: (roundTime) => {
-        set({ roundTime });
-    },
-}));
+            setHasHydrated: (hasHydrated) => {
+                set({ hasHydrated });
+            },
+
+            setDeckSize: (deckSize) => {
+                set({ deckSize });
+            },
+
+            setRoundTime: (roundTime) => {
+                set({ roundTime });
+            },
+        }),
+        {
+            name: 'alias-settings',
+
+            partialize: (state) => ({
+                deckSize: state.deckSize,
+                roundTime: state.roundTime,
+            }),
+
+            onRehydrateStorage: () => (state) => {
+                state?.setHasHydrated(true);
+            },
+        },
+    ),
+);

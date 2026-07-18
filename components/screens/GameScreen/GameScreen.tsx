@@ -31,6 +31,7 @@ export function GameScreen() {
                 alt={currentCard.word}
                 width={300}
                 height={300}
+                loading="eager"
             />
 
             <h2>{currentCard.word}</h2>
