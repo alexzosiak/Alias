@@ -6,7 +6,7 @@ import { useSettingsStore } from '@/store/settings/settings.store';
 import { useScreenStore } from '@/store/screen/screen.store';
 import type { DeckSize, RoundTime } from '@/store/settings/settings.type';
 import { Button } from '@/components/ui/Button/Button';
-import styles from './SettingScreen.module.scss';
+import styles from '@components/screens/SettingScreen/SettingScreen.module.scss';
 
 export function SettingScreen() {
     const { goToMenu } = useScreenStore();
